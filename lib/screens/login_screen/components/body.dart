@@ -3,14 +3,18 @@ import 'package:ecommerce_app/screens/login_screen/components/textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
-class LoginBody extends StatelessWidget {
+class LoginBody extends StatefulWidget {
   const LoginBody({Key? key}) : super(key: key);
 
   @override
+  State<LoginBody> createState() => _LoginBodyState();
+}
+
+class _LoginBodyState extends State<LoginBody> {
+  MyConstant myConstant = MyConstant();
+  @override
   Widget build(BuildContext context) {
-    MyConstant myConstant = MyConstant();
-    return Scaffold(
-      body: SizedBox(
+    return SizedBox(
         child: Stack(
           alignment: Alignment.bottomCenter,
           children: <Widget>[
@@ -41,7 +45,6 @@ class LoginBody extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
+      );
   }
 }

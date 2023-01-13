@@ -101,7 +101,7 @@ class _SeeAllScreeenState extends State<SeeAllScreeen> {
                                           fontSize: 20,
                                           fontWeight: FontWeight.bold),
                                     ),
-                                    SizedBox(width: 20,),
+                                   const SizedBox(width: 20,),
                                     Container(
                                       height: 35,
                                       width: 70,

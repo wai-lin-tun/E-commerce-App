@@ -13,10 +13,12 @@ class ProfileProvider with ChangeNotifier{
    var imageFromGallery = await picker.pickImage(source:ImageSource.gallery);
    if(imageFromGallery == null)return imageFromGallery;
    imageTemp = File(imageFromGallery.path);
+   // ignore: avoid_print
    print("image $imageTemp");
    equableImage();
     Navigator.pop(context);
   }on PlatformException catch (e) {
+      // ignore: avoid_print
       print('Failed to pick image: $e');
     }
   }
@@ -28,6 +30,7 @@ class ProfileProvider with ChangeNotifier{
    equableImage();
    Navigator.pop(context);
   }on PlatformException catch (e) {
+      // ignore: avoid_print
       print('Failed to pick image: $e');
     }
   }

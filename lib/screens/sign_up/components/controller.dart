@@ -1,4 +1,3 @@
-import 'package:ecommerce_app/screens/home_screen/home_screen.dart';
 import 'package:ecommerce_app/screens/sign_up/components/success.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -32,22 +31,21 @@ class SignUpController{
   )async{
     FirebaseAuth auth = FirebaseAuth.instance;
     try {
-      UserCredential userCredential = await auth.createUserWithEmailAndPassword(
-        email: email,
-         password:password,
-         );
          auth.currentUser!.updateDisplayName(name);
           Navigator.push(
           context, MaterialPageRoute(builder: (context) => const SignUpSuccess()));
     }on FirebaseAuthException catch (e){
      if (e.code == 'weak-password') {
+        // ignore: avoid_print
         print('The password provided is too weak.');
         return snackBar(context);
       } else if (e.code == 'email-already-in-use') {
+        // ignore: avoid_print
         print('The account already exists for that email.');
         return snackBar(context);
       }
     } catch (e) {
+      // ignore: avoid_print
       print("Yes");
     }
   }

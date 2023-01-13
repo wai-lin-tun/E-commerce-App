@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:ecommerce_app/constants.dart';
 import 'package:ecommerce_app/screens/home_screen/home_screen.dart';
 import 'package:ecommerce_app/screens/onborading_screen/onborading.dart';
-import 'package:ecommerce_app/screens/profile/profile_screen.dart';
 import 'package:ecommerce_app/service/provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

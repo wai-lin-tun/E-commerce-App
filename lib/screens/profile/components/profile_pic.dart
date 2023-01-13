@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 class ProfilePic extends StatelessWidget {
   const ProfilePic({Key? key,required this.onPressed, required this.value}) : super(key: key);
    final GestureTapCallback onPressed;
+   // ignore: prefer_typing_uninitialized_variables
    final  value;
   @override
   Widget build(BuildContext context) {

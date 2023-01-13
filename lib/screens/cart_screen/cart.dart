@@ -52,7 +52,7 @@ class _CartScreenState extends State<CartScreen> {
             child: Consumer<AllProvider>(
               builder: (context, value, child) {
                 if (provider.productList.isEmpty) {
-                  return EmptyCart();
+                  return const EmptyCart();
                 }
                 return ListView.builder(
                   itemCount: value.productList.length,

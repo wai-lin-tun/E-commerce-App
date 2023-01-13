@@ -1,5 +1,4 @@
 import 'package:ecommerce_app/models/myproducts_models.dart';
-import 'package:ecommerce_app/models/product_model.dart';
 import 'package:sqflite/sqflite.dart';
 
 class DataBaseHelper {

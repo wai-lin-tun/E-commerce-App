@@ -1,9 +1,6 @@
 import 'package:ecommerce_app/constants.dart';
-import 'package:ecommerce_app/main.dart';
 import 'package:ecommerce_app/screens/home_page/components/body.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

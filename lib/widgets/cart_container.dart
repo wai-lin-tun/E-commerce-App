@@ -150,7 +150,7 @@ class CartContainer extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Text(
-                          "\$ ${price}",
+                          "\$ $price",
                           style: TextStyle(
                               color: myConstant.kDarkBlueColor,
                               fontSize: 20,

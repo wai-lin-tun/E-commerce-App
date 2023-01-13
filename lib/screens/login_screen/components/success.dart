@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:ecommerce_app/constants.dart';
 import 'package:ecommerce_app/screens/home_screen/home_screen.dart';
 import 'package:flutter/material.dart';

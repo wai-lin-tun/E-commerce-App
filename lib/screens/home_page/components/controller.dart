@@ -8,7 +8,7 @@ class ProductController {
     var url = Uri.parse(myConstant.productUrl);
     var response = await http.get(url);
     if(response.statusCode == 200){
-      print(response.statusCode);
+      
       return productsFromJson(response.body);
     }
     return throw Exception();

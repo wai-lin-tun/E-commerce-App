@@ -6,10 +6,21 @@ import 'package:shared_preferences/shared_preferences.dart';
 class AllProvider with ChangeNotifier {
   bool isLoading = true;
   int currentIndex = 0;
+  bool loginpasswordVisible = true;
+  bool signupPasswordVisible = true;
   DataBaseHelper dataBaseHelper = DataBaseHelper();
   List<MyProducts> productList = [];
   int quantity = 1;
   double totalPrice = 0.0;
+    
+   loginVisible(){
+  loginpasswordVisible = !loginpasswordVisible;
+  notifyListeners();
+   }
+   signupVisible(){
+    signupPasswordVisible = !signupPasswordVisible;
+    notifyListeners();
+   }
 
   onTapItem(index) {
     currentIndex = index;

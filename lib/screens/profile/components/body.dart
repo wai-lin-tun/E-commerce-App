@@ -40,7 +40,7 @@ class _ProfileBodyState extends State<ProfileBody> {
                         IconButton(
                           onPressed: () {
                             value.imageFromGallery(context);
-                            print(value.pickImage);
+                           
                           },
                           icon: const Icon(
                             Icons.image,
@@ -50,7 +50,7 @@ class _ProfileBodyState extends State<ProfileBody> {
                         IconButton(
                           onPressed: () {
                             value.imageFromCamera(context);
-                            print(value.pickImage);
+                            
                           },
                           icon: const Icon(
                             Icons.photo_camera,
