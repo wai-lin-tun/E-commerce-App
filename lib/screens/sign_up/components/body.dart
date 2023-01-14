@@ -9,6 +9,7 @@ class SignUpBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     MyConstant myConstant = MyConstant();
+    var size = MediaQuery.of(context).size;
     return Scaffold(
       body: SizedBox(
         child: Stack(
@@ -22,19 +23,19 @@ class SignUpBody extends StatelessWidget {
               ),
             ),
             Positioned(
-              top: 300,
-              left: 20,
-              width: 350,
-              height: 400,
-              child: Card(
-                elevation: 10,
-                child: Container(
-                  width: 150,
-                  height: 150,
-                  color: Colors.white,
-                  child:const Padding(
-                    padding:  EdgeInsets.all(12.0),
-                    child: SignUpTextField()
+              top:size.height/3 ,
+              width: size.width,
+              height: size.height/2,
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Card(
+                  elevation: 10,
+                  child: Container(
+                    color: Colors.white,
+                    child:const Padding(
+                      padding:  EdgeInsets.all(12.0),
+                      child: SignUpTextField()
+                    ),
                   ),
                 ),
               ),

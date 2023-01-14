@@ -67,8 +67,8 @@ class _OnBoradingScreenState extends State<OnBoradingScreen> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-            const  SizedBox(
-                height: 480,
+              SizedBox(
+               height: MediaQuery.of(context).size.height/2,
               ),
               Text(
                 'On your way...',
@@ -100,8 +100,8 @@ class _OnBoradingScreenState extends State<OnBoradingScreen> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-             const SizedBox(
-                height: 480,
+              SizedBox(
+               height: MediaQuery.of(context).size.height/2,
               ),
               Text(
                 'You’ve reached your destination.',
@@ -133,8 +133,8 @@ class _OnBoradingScreenState extends State<OnBoradingScreen> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-             const SizedBox(
-                height: 480,
+              SizedBox(
+                height: MediaQuery.of(context).size.height/2,
               ),
               Text(
                 'Start now!',

@@ -14,6 +14,7 @@ class _LoginBodyState extends State<LoginBody> {
   MyConstant myConstant = MyConstant();
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return SizedBox(
         child: Stack(
           alignment: Alignment.bottomCenter,
@@ -26,19 +27,21 @@ class _LoginBodyState extends State<LoginBody> {
               ),
             ),
             Positioned(
-              top: 300,
-              left: 20,
-              width: 350,
-              height: 400,
-              child: Card(
-                elevation: 10,
-                child: Container(
-                  width: 150,
-                  height: 150,
-                  color: Colors.white,
-                  child:const Padding(
-                    padding:  EdgeInsets.all(12.0),
-                    child: LoginTextField()
+              top: size.height/3,
+               width: size.width,
+              height: size.height/2,
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Card(
+                  elevation: 10,
+                  child: Container(
+                    width: 150,
+                    height: 150,
+                    color: Colors.white,
+                    child:const Padding(
+                      padding:  EdgeInsets.all(12.0),
+                      child: LoginTextField()
+                    ),
                   ),
                 ),
               ),

@@ -35,10 +35,12 @@ class ProductDetail extends StatefulWidget {
 class _ProductDetailState extends State<ProductDetail> {
   MyConstant myConstant = MyConstant();
   DataBaseHelper dataBaseHelper = DataBaseHelper();
+
   bool isAdded = false;
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<AllProvider>(context);
+    var size = MediaQuery.of(context).size;
     void addCart() {
       dataBaseHelper
           .insertProducts(
@@ -109,8 +111,8 @@ class _ProductDetailState extends State<ProductDetail> {
               child: Column(
                 children: [
                   SizedBox(
-                    height: 150,
-                    width: 200,
+                    height:size.height/5 ,
+                    width: size.width/3,
                     child: Image.network(
                       widget.image,
                     ),

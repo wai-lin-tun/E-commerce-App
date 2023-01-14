@@ -23,102 +23,104 @@ class _ProfileBodyState extends State<ProfileBody> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Column(
-        children: [
-         Consumer<ProfileProvider>(builder:(context, value, child) {
-          return  
-             ProfilePic(
-            value: value.pickImage,
-          
-            onPressed: (){
-             Get.defaultDialog(
-                    title: "On Select",
-                    radius: 15,
-                    content: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        IconButton(
-                          onPressed: () {
-                            value.imageFromGallery(context);
-                           
-                          },
-                          icon: const Icon(
-                            Icons.image,
-                            size: 35,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+           Consumer<ProfileProvider>(builder:(context, value, child) {
+            return  
+               ProfilePic(
+              value: value.pickImage,
+            
+              onPressed: (){
+               Get.defaultDialog(
+                      title: "On Select",
+                      radius: 15,
+                      content: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          IconButton(
+                            onPressed: () {
+                              value.imageFromGallery(context);
+                             
+                            },
+                            icon: const Icon(
+                              Icons.image,
+                              size: 35,
+                            ),
                           ),
-                        ),
-                        IconButton(
-                          onPressed: () {
-                            value.imageFromCamera(context);
-                            
+                          IconButton(
+                            onPressed: () {
+                              value.imageFromCamera(context);
+                              
+                            },
+                            icon: const Icon(
+                              Icons.photo_camera,
+                              size: 35,
+                            ),
+                          )
+                        ],
+                      ),
+                    );
+              },
+            );
+           },),
+            const SizedBox(height: 10),
+            ProfileMenu(
+              text: myConstant.myAccount,
+              icon: Icon(
+                Icons.person_sharp,
+                color: myConstant.kDarkBlueColor,
+              ),
+              press: () => {},
+            ),
+            ProfileMenu(
+              text: myConstant.notification,
+              icon: Icon(
+                Icons.notifications,
+                color: myConstant.kDarkBlueColor,
+              ),
+              press: () {},
+            ),
+            ProfileMenu(
+              text: myConstant.settings,
+              icon: Icon(Icons.settings, color: myConstant.kDarkBlueColor),
+              press: () {},
+            ),
+            ProfileMenu(
+              text: myConstant.helpCenter,
+              icon: Icon(
+                Icons.help_center_outlined,
+                color: myConstant.kDarkBlueColor,
+              ),
+              press: () {},
+            ),
+            ProfileMenu(
+              text: myConstant.logOut,
+              icon: Icon(
+                Icons.logout_sharp,
+                color: myConstant.kDarkBlueColor,
+              ),
+              press: () {
+                showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return MyDialog(
+                          title: "Log Out",
+                          cancel: () {
+                            Navigator.pop(context);
                           },
-                          icon: const Icon(
-                            Icons.photo_camera,
-                            size: 35,
-                          ),
-                        )
-                      ],
-                    ),
-                  );
-            },
-          );
-         },),
-          const SizedBox(height: 10),
-          ProfileMenu(
-            text: myConstant.myAccount,
-            icon: Icon(
-              Icons.person_sharp,
-              color: myConstant.kDarkBlueColor,
+                          content: "Are you sure?",
+                          comfirm: () async {
+                            profileController.logOut(context);
+                            SharedPreferences sharedPreferences =
+                                await SharedPreferences.getInstance();
+                            sharedPreferences.clear();
+                          });
+                    });
+              },
             ),
-            press: () => {},
-          ),
-          ProfileMenu(
-            text: myConstant.notification,
-            icon: Icon(
-              Icons.notifications,
-              color: myConstant.kDarkBlueColor,
-            ),
-            press: () {},
-          ),
-          ProfileMenu(
-            text: myConstant.settings,
-            icon: Icon(Icons.settings, color: myConstant.kDarkBlueColor),
-            press: () {},
-          ),
-          ProfileMenu(
-            text: myConstant.helpCenter,
-            icon: Icon(
-              Icons.help_center_outlined,
-              color: myConstant.kDarkBlueColor,
-            ),
-            press: () {},
-          ),
-          ProfileMenu(
-            text: myConstant.logOut,
-            icon: Icon(
-              Icons.logout_sharp,
-              color: myConstant.kDarkBlueColor,
-            ),
-            press: () {
-              showDialog(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return MyDialog(
-                        title: "Log Out",
-                        cancel: () {
-                          Navigator.pop(context);
-                        },
-                        content: "Are you sure?",
-                        comfirm: () async {
-                          profileController.logOut(context);
-                          SharedPreferences sharedPreferences =
-                              await SharedPreferences.getInstance();
-                          sharedPreferences.clear();
-                        });
-                  });
-            },
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
