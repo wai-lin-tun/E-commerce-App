@@ -13,9 +13,9 @@ class OnBoradingScreen extends StatefulWidget {
 
 class _OnBoradingScreenState extends State<OnBoradingScreen> {
   MyConstant  myConstant = MyConstant();
-
   @override
   Widget build(BuildContext context) {
+     var size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
@@ -55,9 +55,9 @@ class _OnBoradingScreenState extends State<OnBoradingScreen> {
           headerBackgroundColor: Colors.white,
           pageBackgroundColor: Colors.white,
           background: [
-          Image.network(myConstant.imageUrl1,height: 300,),
-          Image.network(myConstant.imageUrl2,height: 250,),
-          Image.network(myConstant.imageUrl3,height: 250,)
+          Image.network(myConstant.imageUrl1,height:size.height/2 ,),
+          Image.network(myConstant.imageUrl2,height: size.height/2.5,),
+          Image.network(myConstant.imageUrl3,height: size.height/2.5,)
           ],
           speed: 1.5,
           pageBodies: [
@@ -101,7 +101,7 @@ class _OnBoradingScreenState extends State<OnBoradingScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               SizedBox(
-               height: MediaQuery.of(context).size.height/2,
+               height:size.height/2,
               ),
               Text(
                 'You’ve reached your destination.',
