@@ -2,9 +2,11 @@ import 'package:ecommerce_app/constants.dart';
 import 'package:ecommerce_app/models/product_model.dart';
 import 'package:ecommerce_app/screens/home_page/components/controller.dart';
 import 'package:ecommerce_app/screens/product-details/details.dart';
+import 'package:ecommerce_app/string.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SeeAllScreeen extends StatefulWidget {
   const SeeAllScreeen({Key? key}) : super(key: key);
@@ -18,6 +20,7 @@ class _SeeAllScreeenState extends State<SeeAllScreeen> {
   ProductController productController = ProductController();
   @override
   Widget build(BuildContext context) {
+     final appLocalization =  AppLocalizations.of(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: myConstant.white,
@@ -32,8 +35,7 @@ class _SeeAllScreeenState extends State<SeeAllScreeen> {
           },
         ),
         centerTitle: true,
-        title: Text(
-          "My Products",
+        title: Text(appLocalization!.normalProducts,
           style: TextStyle(color: myConstant.kDarkBlueColor, fontSize: 25),
         ),
       ),
@@ -145,7 +147,7 @@ class _SeeAllScreeenState extends State<SeeAllScreeen> {
           return Center(
             child: SizedBox(
               height: 100,
-              child: Lottie.asset(myConstant.loadingLottie),
+              child: Lottie.asset(loadingLottie),
             ),
           );
         },

@@ -3,6 +3,7 @@ import 'package:ecommerce_app/screens/login_screen/login.dart';
 import 'package:ecommerce_app/screens/sign_up/signup_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_onboarding_slider/flutter_onboarding_slider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class OnBoradingScreen extends StatefulWidget {
   const OnBoradingScreen({Key? key}) : super(key: key);
@@ -15,19 +16,20 @@ class _OnBoradingScreenState extends State<OnBoradingScreen> {
   MyConstant  myConstant = MyConstant();
   @override
   Widget build(BuildContext context) {
+    final appLocalization =  AppLocalizations.of(context);
      var size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
         child: OnBoardingSlider(
-          finishButtonText: "Register",
+          finishButtonText: appLocalization!.register,
           onFinish: () {
             Navigator.push(context,
                 MaterialPageRoute(builder: (context) => const SignUp()));
           },
           finishButtonColor: myConstant.kDarkBlueColor,
           trailing: Text(
-            'Login',
+            appLocalization.login,
             style: TextStyle(
               fontSize: 16,
               color: myConstant.kDarkBlueColor,
@@ -43,7 +45,7 @@ class _OnBoradingScreenState extends State<OnBoradingScreen> {
             );
           },
           skipTextButton: Text(
-            'Skip',
+            appLocalization.skip,
             style: TextStyle(
               color: myConstant.kDarkBlueColor,
               fontSize: 16,
@@ -137,7 +139,7 @@ class _OnBoradingScreenState extends State<OnBoradingScreen> {
                 height: MediaQuery.of(context).size.height/2,
               ),
               Text(
-                'Start now!',
+               appLocalization.startNow,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: myConstant.kDarkBlueColor,

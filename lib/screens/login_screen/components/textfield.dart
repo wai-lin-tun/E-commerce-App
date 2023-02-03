@@ -2,6 +2,8 @@ import 'package:ecommerce_app/constants.dart';
 import 'package:ecommerce_app/screens/login_screen/components/controller.dart';
 import 'package:ecommerce_app/screens/sign_up/signup_screen.dart';
 import 'package:ecommerce_app/service/provider/provider.dart';
+import 'package:ecommerce_app/string.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -17,6 +19,7 @@ class _LoginTextFieldState extends State<LoginTextField> {
   MyConstant myConstant = MyConstant();
   @override
   Widget build(BuildContext context) {
+    final appLocalization =  AppLocalizations.of(context);
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
@@ -37,7 +40,7 @@ class _LoginTextFieldState extends State<LoginTextField> {
             decoration: InputDecoration(
               border: InputBorder.none,
               hintStyle: myConstant.textFieldHintTextStyle,
-              hintText: "Email",
+              hintText: appLocalization!.email,
             ),
           ),
         ),
@@ -76,7 +79,7 @@ class _LoginTextFieldState extends State<LoginTextField> {
                           ),
                   ),
                   hintStyle: myConstant.textFieldHintTextStyle,
-                  hintText: "Password",
+                  hintText: appLocalization.passward,
                 ),
               ),
             );
@@ -87,7 +90,7 @@ class _LoginTextFieldState extends State<LoginTextField> {
             TextButton(
               onPressed: () {},
               child: Text(
-                "ForgetPassword",
+                appLocalization.forgetPassword,
                 style: TextStyle(color: myConstant.kDarkBlueColor),
               ),
             ),

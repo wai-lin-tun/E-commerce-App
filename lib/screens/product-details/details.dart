@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:readmore/readmore.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ProductDetail extends StatefulWidget {
   const ProductDetail(
@@ -39,6 +40,7 @@ class _ProductDetailState extends State<ProductDetail> {
   bool isAdded = false;
   @override
   Widget build(BuildContext context) {
+     final appLocalization =  AppLocalizations.of(context);
     final provider = Provider.of<AllProvider>(context);
     var size = MediaQuery.of(context).size;
     void addCart() {
@@ -259,7 +261,7 @@ class _ProductDetailState extends State<ProductDetail> {
                               size: 25,
                             )
                           : Text(
-                              "Add to Cart",
+                              appLocalization!.addToCart,
                               style: TextStyle(
                                   color: myConstant.white,
                                   fontSize: 15,

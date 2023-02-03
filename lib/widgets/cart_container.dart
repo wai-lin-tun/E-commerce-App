@@ -2,6 +2,8 @@ import 'package:ecommerce_app/constants.dart';
 import 'package:ecommerce_app/models/myproducts_models.dart';
 import 'package:ecommerce_app/service/database/database.dart';
 import 'package:ecommerce_app/service/provider/provider.dart';
+import 'package:ecommerce_app/string.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:ecommerce_app/widgets/dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -23,6 +25,7 @@ class CartContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     final appLocalization =  AppLocalizations.of(context);
     MyConstant myConstant = MyConstant();
     DataBaseHelper dataBaseHelper = DataBaseHelper();
     final provider = Provider.of<AllProvider>(context);
@@ -162,11 +165,11 @@ class CartContainer extends StatelessWidget {
                               context: context,
                               builder: (BuildContext context) {
                                 return MyDialog(
-                                  title: "Delete!",
+                                  title: appLocalization!.delete,
                                   cancel: () {
                                     Navigator.pop(context);
                                   },
-                                  content: "Are you sure?",
+                                  content: appLocalization.areYouSure,
                                   comfirm: () {
                                     provider.removeItem(id);
                                     Navigator.pop(context);
@@ -184,7 +187,7 @@ class CartContainer extends StatelessWidget {
                                 color: myConstant.kDarkBlueColor),
                             child: Center(
                               child: Text(
-                                "Remove",
+                               appLocalization!.remove,
                                 style: TextStyle(
                                   color: myConstant.white,
                                 ),

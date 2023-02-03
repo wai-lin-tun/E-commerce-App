@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce_app/constants.dart';
+import 'package:ecommerce_app/string.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -35,7 +36,7 @@ class CategoryCard extends StatelessWidget {
                 imageUrl: imageUrl,
                 progressIndicatorBuilder: (context, url, downloadProgress) =>
                     Center(
-                        child: Lottie.asset(myConstant.loadingLottie,height: 50,width: 50)),
+                        child: Lottie.asset(loadingLottie,height: 50,width: 50)),
                 errorWidget: (context, url, error) => Image.network(
                     myConstant.placeholderUrl),
               ),

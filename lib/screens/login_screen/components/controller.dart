@@ -1,18 +1,21 @@
 import 'package:ecommerce_app/screens/login_screen/components/success.dart';
+import 'package:ecommerce_app/string.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LoginController {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwardController = TextEditingController();
   snackBar(context) {
+     final appLocalization =  AppLocalizations.of(context);
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         action: SnackBarAction(
-          label: "Ok",
+          label: appLocalization!.ok,
           onPressed: () {},
         ),
-        content: const Text("Your Email or passward is wrong"),
+        content:  Text(appLocalization.emailAndPasswordIsWrong),
         duration: const Duration(seconds: 2),
         width: 280.0,
         padding: const EdgeInsets.symmetric(

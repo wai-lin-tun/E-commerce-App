@@ -1,9 +1,11 @@
 import 'package:ecommerce_app/constants.dart';
 import 'package:ecommerce_app/screens/profile/components/controller.dart';
-import 'package:ecommerce_app/screens/profile/components/profile_menu.dart';
+import 'package:ecommerce_app/screens/profile/components/setting.dart';
+import 'package:ecommerce_app/widgets/profile_menu.dart';
 import 'package:ecommerce_app/screens/profile/components/profile_pic.dart';
 import 'package:ecommerce_app/service/provider/profile_image_provider.dart';
 import 'package:ecommerce_app/widgets/dialog.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
@@ -21,19 +23,20 @@ class _ProfileBodyState extends State<ProfileBody> {
   MyConstant myConstant = MyConstant();
   @override
   Widget build(BuildContext context) {
+     final appLocalization =  AppLocalizations.of(context);
+    final locale = Localizations.localeOf(context);
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Column(
           children: [
-           Consumer<ProfileProvider>(builder:(context, value, child) {
-            return  
-               ProfilePic(
-              value: value.pickImage,
-            
-              onPressed: (){
-               Get.defaultDialog(
-                      title: "On Select",
+            Consumer<ProfileProvider>(
+              builder: (context, value, child) {
+                return ProfilePic(
+                  value: value.pickImage,
+                  onPressed: () {
+                    Get.defaultDialog(
+                      title: appLocalization!.onSelect,
                       radius: 15,
                       content: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -41,7 +44,6 @@ class _ProfileBodyState extends State<ProfileBody> {
                           IconButton(
                             onPressed: () {
                               value.imageFromGallery(context);
-                             
                             },
                             icon: const Icon(
                               Icons.image,
@@ -51,7 +53,6 @@ class _ProfileBodyState extends State<ProfileBody> {
                           IconButton(
                             onPressed: () {
                               value.imageFromCamera(context);
-                              
                             },
                             icon: const Icon(
                               Icons.photo_camera,
@@ -61,12 +62,13 @@ class _ProfileBodyState extends State<ProfileBody> {
                         ],
                       ),
                     );
+                  },
+                );
               },
-            );
-           },),
+            ),
             const SizedBox(height: 10),
             ProfileMenu(
-              text: myConstant.myAccount,
+              text: appLocalization!.myAccount,
               icon: Icon(
                 Icons.person_sharp,
                 color: myConstant.kDarkBlueColor,
@@ -74,7 +76,7 @@ class _ProfileBodyState extends State<ProfileBody> {
               press: () => {},
             ),
             ProfileMenu(
-              text: myConstant.notification,
+              text: appLocalization.notification,
               icon: Icon(
                 Icons.notifications,
                 color: myConstant.kDarkBlueColor,
@@ -82,20 +84,24 @@ class _ProfileBodyState extends State<ProfileBody> {
               press: () {},
             ),
             ProfileMenu(
-              text: myConstant.settings,
+              text: appLocalization.settings,
               icon: Icon(Icons.settings, color: myConstant.kDarkBlueColor),
-              press: () {},
+              press: () {
+                Get.to(() => const Setting());
+              },
             ),
             ProfileMenu(
-              text: myConstant.helpCenter,
+              text: appLocalization.helpCenter,
               icon: Icon(
                 Icons.help_center_outlined,
                 color: myConstant.kDarkBlueColor,
               ),
-              press: () {},
+              press: () {
+
+              },
             ),
             ProfileMenu(
-              text: myConstant.logOut,
+              text: appLocalization.logOut,
               icon: Icon(
                 Icons.logout_sharp,
                 color: myConstant.kDarkBlueColor,
@@ -105,11 +111,11 @@ class _ProfileBodyState extends State<ProfileBody> {
                     context: context,
                     builder: (BuildContext context) {
                       return MyDialog(
-                          title: "Log Out",
+                          title: appLocalization.logOut,
                           cancel: () {
                             Navigator.pop(context);
                           },
-                          content: "Are you sure?",
+                          content: appLocalization.areYouSure,
                           comfirm: () async {
                             profileController.logOut(context);
                             SharedPreferences sharedPreferences =

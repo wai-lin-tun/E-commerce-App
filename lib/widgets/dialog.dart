@@ -1,5 +1,7 @@
 import 'package:ecommerce_app/constants.dart';
+import 'package:ecommerce_app/string.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MyDialog extends StatelessWidget {
   const MyDialog({
@@ -15,6 +17,7 @@ class MyDialog extends StatelessWidget {
   final GestureTapCallback comfirm;
   @override
   Widget build(BuildContext context) {
+    final appLocalization =  AppLocalizations.of(context);
     MyConstant myConstant = MyConstant();
     return AlertDialog(
       title: Text(title),
@@ -23,15 +26,15 @@ class MyDialog extends StatelessWidget {
       actions: [
         TextButton(
           onPressed: cancel,
-          child: Text(
-            "Cancel",
+          child: Text(appLocalization!.cancel1,
+           
             style: TextStyle(color: myConstant.kDarkBlueColor),
           ),
         ),
         TextButton(
           onPressed: comfirm,
           child: Text(
-            "Ok",
+            appLocalization.ok,
             style: TextStyle(color: myConstant.kDarkBlueColor),
           ),
         ),

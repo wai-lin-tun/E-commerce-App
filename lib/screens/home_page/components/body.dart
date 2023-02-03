@@ -3,10 +3,14 @@ import 'package:ecommerce_app/models/product_model.dart';
 import 'package:ecommerce_app/screens/home_page/components/controller.dart';
 import 'package:ecommerce_app/screens/product-details/details.dart';
 import 'package:ecommerce_app/screens/seeall_%20screen/seeall.dart';
+import 'package:ecommerce_app/service/provider/locale_provider.dart';
+import 'package:ecommerce_app/string.dart';
 import 'package:ecommerce_app/widgets/product_container.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:lottie/lottie.dart';
+import 'package:provider/provider.dart';
 
 class HomePageBody extends StatefulWidget {
   const HomePageBody({Key? key}) : super(key: key);
@@ -20,10 +24,19 @@ class _HomePageBodyState extends State<HomePageBody> {
   ProductController productController = ProductController();
   bool isLike = true;
   @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final provider = Provider.of<LocaleProvider>(context, listen: false);
+
+      provider.clearLocale();
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final appLocalization = AppLocalizations.of(context);
     return Column(
       children: [
-        
         Expanded(
           flex: 1,
           child: FutureBuilder<List<Products>>(
@@ -40,7 +53,7 @@ class _HomePageBodyState extends State<HomePageBody> {
                           Padding(
                             padding: const EdgeInsets.only(left: 12),
                             child: Text(
-                              "Popular Products",
+                              appLocalization!.popularProducts,
                               style: TextStyle(
                                   color: myConstant.kDarkBlueColor,
                                   fontSize: 20,
@@ -51,7 +64,7 @@ class _HomePageBodyState extends State<HomePageBody> {
                             child: TextButton(
                               onPressed: () {},
                               child: Text(
-                                "See All",
+                                appLocalization.seeAll,
                                 style:
                                     TextStyle(color: myConstant.kDarkBlueColor),
                               ),
@@ -88,7 +101,7 @@ class _HomePageBodyState extends State<HomePageBody> {
                           Padding(
                             padding: const EdgeInsets.only(left: 12),
                             child: Text(
-                              "My Products",
+                              appLocalization.normalProducts,
                               style: TextStyle(
                                   color: myConstant.kDarkBlueColor,
                                   fontSize: 20,
@@ -98,10 +111,10 @@ class _HomePageBodyState extends State<HomePageBody> {
                           SizedBox(
                             child: TextButton(
                               onPressed: () {
-                                Get.to(()=>const SeeAllScreeen());
+                                Get.to(() => const SeeAllScreeen());
                               },
                               child: Text(
-                                "See All",
+                                appLocalization.seeAll,
                                 style:
                                     TextStyle(color: myConstant.kDarkBlueColor),
                               ),
@@ -151,7 +164,8 @@ class _HomePageBodyState extends State<HomePageBody> {
                                           width: 30,
                                         ),
                                         const Icon(
-                                          Icons.star,size: 20,
+                                          Icons.star,
+                                          size: 20,
                                           color: Colors.amber,
                                         ),
                                         Text(data.rating.rate.toString())
@@ -171,7 +185,7 @@ class _HomePageBodyState extends State<HomePageBody> {
               return Center(
                 child: SizedBox(
                   height: 100,
-                  child: Lottie.asset(myConstant.loadingLottie),
+                  child: Lottie.asset(loadingLottie),
                 ),
               );
             },

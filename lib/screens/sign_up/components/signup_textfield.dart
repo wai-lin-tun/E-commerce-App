@@ -2,7 +2,7 @@ import 'package:ecommerce_app/constants.dart';
 import 'package:ecommerce_app/screens/login_screen/login.dart';
 import 'package:ecommerce_app/screens/sign_up/components/controller.dart';
 import 'package:ecommerce_app/service/provider/provider.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -10,6 +10,7 @@ class SignUpTextField extends StatelessWidget {
   const SignUpTextField({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+     final appLocalization =  AppLocalizations.of(context);
     TextEditingController usernameController = TextEditingController();
     TextEditingController emailController = TextEditingController();
     TextEditingController passwordController = TextEditingController();
@@ -35,7 +36,7 @@ class SignUpTextField extends StatelessWidget {
             decoration: InputDecoration(
               border: InputBorder.none,
               hintStyle: myConstant.textFieldHintTextStyle,
-              hintText: "Username",
+              hintText: appLocalization!.userName,
             ),
           ),
         ),
@@ -56,7 +57,7 @@ class SignUpTextField extends StatelessWidget {
             decoration: InputDecoration(
               border: InputBorder.none,
               hintStyle: myConstant.textFieldHintTextStyle,
-              hintText: "Email",
+              hintText: appLocalization.email,
             ),
           ),
         ),
@@ -81,7 +82,7 @@ class SignUpTextField extends StatelessWidget {
                 decoration: InputDecoration(
                   border: InputBorder.none,
                   hintStyle: myConstant.textFieldHintTextStyle,
-                  hintText: "Password",
+                  hintText: appLocalization.passward,
                   suffixIcon: GestureDetector(
                     onTap: () {
                       value.signupVisible();
@@ -116,9 +117,9 @@ class SignUpTextField extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
               color: myConstant.kDarkBlueColor,
             ),
-            child: const Text(
-              "Signup",
-              style: TextStyle(
+            child:  Text(
+              appLocalization.signup,
+              style:const TextStyle(
                   color: Colors.white,
                   fontSize: 18,
                   fontWeight: FontWeight.w600),

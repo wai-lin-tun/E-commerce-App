@@ -3,6 +3,7 @@ import 'package:ecommerce_app/screens/cart_screen/cart.dart';
 import 'package:ecommerce_app/screens/home_screen/components/body.dart';
 import 'package:ecommerce_app/screens/home_screen/components/bottom_navbar.dart';
 import 'package:ecommerce_app/service/provider/provider.dart';
+import 'package:ecommerce_app/widgets/language_widge.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:badges/badges.dart' as badges;
@@ -10,7 +11,6 @@ import 'package:provider/provider.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
-  static String routeName = "/home";
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }

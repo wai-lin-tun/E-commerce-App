@@ -9,19 +9,7 @@ class MyConstant {
   Color white = Colors.white;
   final TextStyle textFieldHintTextStyle =
       const TextStyle(color: Colors.black54);
-  final String myAccount = "My Account";
-  final String notification = "Motifications";
-  final String settings = "Settings";
-  final String helpCenter = "Help Center";
-  final String logOut = "Log Out";
   final Color cursorColor = const Color.fromARGB(179, 120, 119, 119);
-  final String signupLottie = "assets/signup.json";
-   String placeholderImage = "images/placeholder images.png";
-  final String loginLottie = "assets/login.json";
-  final String loadingLottie = "assets/loading.json";
-  final String successLottie = "assets/successful.json";
-  final String emptyCartLottie = "assets/emptycart.json";
-  final String productUrl = "https://fakestoreapi.com/products";
   final String placeholderUrl =
       "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png";
   final String imageUrl1 =

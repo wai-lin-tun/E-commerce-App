@@ -3,6 +3,7 @@ import 'package:ecommerce_app/constants.dart';
 import 'package:ecommerce_app/service/provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({Key? key}) : super(key: key);
@@ -15,6 +16,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
    MyConstant myConstant = MyConstant();
   @override
   Widget build(BuildContext context) {
+     final appLocalization =  AppLocalizations.of(context);
    return  Consumer<AllProvider>(builder: (context, value, child) {
      return BottomNavyBar(
         selectedIndex:value.currentIndex ,
@@ -27,22 +29,22 @@ class _BottomNavBarState extends State<BottomNavBar> {
         items: <BottomNavyBarItem>[
           BottomNavyBarItem(
             icon:const Icon(Icons.home),
-            title:const Text('Home'),
+            title: Text(appLocalization!.home),
             activeColor:myConstant.kDarkBlueColor,
             inactiveColor: myConstant.inActiveColor,
             textAlign: TextAlign.center,
           ),
           BottomNavyBarItem(
             icon:const Icon(Icons.favorite),
-            title:const Text('Favorite'),
+            title: Text(appLocalization.favorite),
             activeColor: myConstant.kDarkBlueColor,
             inactiveColor: myConstant.inActiveColor,
             textAlign: TextAlign.center,
           ),
           BottomNavyBarItem(
             icon:const Icon(Icons.message),
-            title:const Text(
-              'Messages',
+            title: Text(
+              appLocalization.message,
             ),
             activeColor:myConstant.kDarkBlueColor,
             inactiveColor: myConstant.inActiveColor,
@@ -50,7 +52,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
           ),
           BottomNavyBarItem(
             icon:const Icon(Icons.person),
-            title:const Text('Pofile'),
+            title: Text(appLocalization.profile),
             activeColor: myConstant.kDarkBlueColor,
             inactiveColor: myConstant.inActiveColor,
             textAlign: TextAlign.center,

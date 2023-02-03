@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/constants.dart';
 import 'package:ecommerce_app/screens/login_screen/components/textfield.dart';
+import 'package:ecommerce_app/string.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -23,7 +24,7 @@ class _LoginBodyState extends State<LoginBody> {
               child: Container(
                 alignment: Alignment.topCenter,
                 color: Colors.white,
-                child: Lottie.asset(myConstant.loginLottie),
+                child: Lottie.asset(loginLottie),
               ),
             ),
             Positioned(

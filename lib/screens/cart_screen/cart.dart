@@ -6,6 +6,7 @@ import 'package:ecommerce_app/widgets/cart_container.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CartScreen extends StatefulWidget {
   const CartScreen({Key? key}) : super(key: key);
@@ -25,6 +26,7 @@ class _CartScreenState extends State<CartScreen> {
 
   @override
   Widget build(BuildContext context) {
+     final appLocalization =  AppLocalizations.of(context);
     final provider = Provider.of<AllProvider>(context);
     return Scaffold(
       appBar: AppBar(
@@ -32,7 +34,7 @@ class _CartScreenState extends State<CartScreen> {
         elevation: 0,
         centerTitle: true,
         title: Text(
-          "Your Cart",
+         appLocalization!.yourCart,
           style: TextStyle(color: myConstant.kDarkBlueColor, fontSize: 25),
         ),
         leading: IconButton(
@@ -88,7 +90,7 @@ class _CartScreenState extends State<CartScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           Text(
-                            "Total Price",
+                            appLocalization.totalPrice,
                             style: TextStyle(
                                 color: myConstant.kDarkBlueColor,
                                 fontSize: 20,
@@ -116,7 +118,7 @@ class _CartScreenState extends State<CartScreen> {
                             color: myConstant.kDarkBlueColor),
                         child: Center(
                           child: Text(
-                            "Order",
+                            appLocalization.order,
                             style: TextStyle(
                                 color: myConstant.white,
                                 fontSize: 15,

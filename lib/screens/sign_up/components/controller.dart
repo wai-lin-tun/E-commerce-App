@@ -1,16 +1,18 @@
 import 'package:ecommerce_app/screens/sign_up/components/success.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SignUpController{
   snackBar(context) {
+     final appLocalization =  AppLocalizations.of(context);
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         action: SnackBarAction(
           label: "Right",
           onPressed: () {},
         ),
-        content: const Text("Your account is created"),
+        content:  Text(appLocalization!.yourAccountCreated),
         duration: const Duration(milliseconds: 1500),
         width: 280.0,
         padding: const EdgeInsets.symmetric(

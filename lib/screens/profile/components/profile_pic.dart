@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/constants.dart';
+import 'package:ecommerce_app/string.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePic extends StatelessWidget {
@@ -29,7 +30,7 @@ class ProfilePic extends StatelessWidget {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(100.0),
                     child: Center(
-                      child: Image.asset(myConstant.placeholderImage),
+                      child: Image.asset(placeholderImage),
                     ),
                   ),
                 ),
