@@ -57,9 +57,9 @@ class _OnBoradingScreenState extends State<OnBoradingScreen> {
           headerBackgroundColor: Colors.white,
           pageBackgroundColor: Colors.white,
           background: [
-          Image.network(myConstant.imageUrl1,height:size.height/2 ,),
-          Image.network(myConstant.imageUrl2,height: size.height/2.5,),
-          Image.network(myConstant.imageUrl3,height: size.height/2.5,)
+          Image.network(myConstant.imageUrl1,height:size.height/3 ,),
+          Image.network(myConstant.imageUrl2,height: size.height/3.5,),
+          Image.network(myConstant.imageUrl3,height: size.height/3.5,)
           ],
           speed: 1.5,
           pageBodies: [
@@ -139,7 +139,7 @@ class _OnBoradingScreenState extends State<OnBoradingScreen> {
                 height: MediaQuery.of(context).size.height/2,
               ),
               Text(
-               appLocalization.startNow,
+               "Start Now",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: myConstant.kDarkBlueColor,

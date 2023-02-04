@@ -20,7 +20,7 @@ class _SeeAllScreeenState extends State<SeeAllScreeen> {
   ProductController productController = ProductController();
   @override
   Widget build(BuildContext context) {
-     final appLocalization =  AppLocalizations.of(context);
+    final appLocalization = AppLocalizations.of(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: myConstant.white,
@@ -35,7 +35,8 @@ class _SeeAllScreeenState extends State<SeeAllScreeen> {
           },
         ),
         centerTitle: true,
-        title: Text(appLocalization!.normalProducts,
+        title: Text(
+          appLocalization!.normalProducts,
           style: TextStyle(color: myConstant.kDarkBlueColor, fontSize: 25),
         ),
       ),
@@ -94,7 +95,8 @@ class _SeeAllScreeenState extends State<SeeAllScreeen> {
                                   ),
                                 ),
                                 Row(
-                               
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
                                       "\$ ${data.price}",
@@ -103,7 +105,6 @@ class _SeeAllScreeenState extends State<SeeAllScreeen> {
                                           fontSize: 20,
                                           fontWeight: FontWeight.bold),
                                     ),
-                                   const SizedBox(width: 20,),
                                     Container(
                                       height: 35,
                                       width: 70,
@@ -114,14 +115,17 @@ class _SeeAllScreeenState extends State<SeeAllScreeen> {
                                       child: Padding(
                                         padding: const EdgeInsets.all(8.0),
                                         child: Row(
-                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
                                           children: [
                                             const Icon(
                                               Icons.star,
                                               size: 20,
                                               color: Colors.amber,
                                             ),
-                                           const SizedBox(width: 10,),
+                                            const SizedBox(
+                                              width: 10,
+                                            ),
                                             Text(
                                               data.rating.rate.toString(),
                                               style: const TextStyle(
